@@ -1,0 +1,65 @@
+/* Self-hosted Manrope font for better performance */
+@font-face {
+  font-family: 'Manrope';
+  src: url('/src/assets/fonts/Manrope-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@import "tailwindcss";
+
+@theme {
+  /* Registering font as 'sans' makes it the default across the site */
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  /* Registering animations so Tailwind creates the utility classes */
+  --animate-scroll-left: scrollLeft 60s linear infinite;
+  --animate-scroll-right: scrollRight 60s linear infinite;
+  --animate-loop-scroll: loopScroll 40s linear infinite;
+}
+
+@layer base {
+  body {
+    background-color: #050505;
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .hover-slide-right {
+    @apply transition-transform duration-300;
+  }
+  .hover-slide-right:hover {
+    @apply translate-x-2;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb { 
+  background: #333; 
+  border-radius: 4px; 
+}
+
+/* Keyframes */
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+@keyframes scrollRight {
+  0% { transform: translateX(-33.33%); }
+  100% { transform: translateX(0); }
+}
+@keyframes loopScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Hover behaviors */
+.animate-scroll-left:hover,
+.animate-scroll-right:hover,
+.animate-loop-scroll:hover {
+  animation-play-state: paused;
+}

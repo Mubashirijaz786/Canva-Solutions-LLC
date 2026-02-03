@@ -1,0 +1,24 @@
+# Root ignores
+node_modules/
+*.log
+.env
+.env.local
+.DS_Store
+.vscode/
+.cache/
+dist/
+build/
+public/build/
+.next/
+.nuxt/
+.output/
+.vercel/
+.idea/
+
+# Ignore client build and deps (kept for clarity)
+client/node_modules/
+client/dist/
+client/build/
+client/.parcel-cache/
+client/.next/
+client/public/build/
